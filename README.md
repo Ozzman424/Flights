@@ -1,5 +1,5 @@
 # Flights
-A website to find cheap flights
+A website to find cheap flights on the internet.
 
 # Explanation:
 
