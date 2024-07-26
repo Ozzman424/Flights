@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Cheap Flights</h1>
+        <form method="post">
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" required>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+            <label for="date">Date (YYYY-MM-DD):</label>
+            <input type="date" id="date" name="date" required>
+            <button type="submit">Search</button>
+        </form>
+        {% if flights %}
+            <h2>Flight Results:</h2>
+            <ul>
+                {% for flight in flights['Quotes'] %}
+                    <li>
+                        Price: ${{ flight['MinPrice'] }}<br>
+                        Departure: {{ flight['OutboundLeg']['DepartureDate'] }}<br>
+                        Airline: {{ flight['OutboundLeg']['CarrierIds'] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
