@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = 'your_skyscanner_api_key'  # Replace with your Skyscanner API key
+API_KEY = 'your_skyscanner_api_key' 
 
 def find_flights(origin, destination, date):
     url = f"https://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/USD/en-US/{origin}/{destination}/{date}"
